@@ -1,3 +1,32 @@
+MediPlan EMI Eligibility Checker 🚀
+Welcome to MediPlan, an intelligent EMI Eligibility Checker app designed to simplify your loan planning experience. This app leverages smart algorithms and intuitive UI to help users check their EMI eligibility, compare multiple loan products, and visualize loan repayment schedules effortlessly.
+
+Key Features
+Accurate EMI Calculation: Calculates monthly EMI based on loan amount, tenure, and interest rate.
+
+Eligibility Check: Instantly determines your loan eligibility based on your salary and EMI limits.
+
+Loan Product Comparison: Compare multiple loan types (Personal, Home, Auto) side-by-side with detailed EMI, interest, and tenure information.
+
+Amortization Schedule: View a detailed month-by-month breakdown of principal, interest, and remaining balance.
+
+Interactive Charts: Visualize the breakdown of principal vs. interest payments using dynamic pie charts.
+
+User-Friendly Interface: Clean, responsive design for seamless use across devices.
+
+Future Enhancements - Powered by AI 🤖
+AI-driven Loan Recommendations: Use machine learning to suggest the best loan products tailored to your financial profile and spending habits.
+
+Predictive Eligibility Insights: AI models to forecast your eligibility based on income trends and credit behavior.
+
+Natural Language Query Support: Chat with the app using conversational AI to get personalized loan advice.
+
+Smart Notifications: Receive intelligent alerts and reminders about EMI payments and loan milestones.
+
+Real-time Market Data Integration: Fetch live interest rates and loan offers using AI-powered data aggregation.
+
+By incorporating AI and smart technology, MediPlan is not just an EMI calculator — it’s your personal financial assistant helping you make smarter borrowing decisions.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
