@@ -1,0 +1,437 @@
+/* ===== Reset & Base Styles ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f3f8ff, #e8f0fe);
+  color: #222;
+  margin: 0;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Container & Layout ===== */
+.app-container {
+  max-width: 920px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 3rem 3.5rem;
+  box-shadow:
+    0 12px 20px rgba(0, 74, 173, 0.1),
+    0 4px 6px rgba(0, 74, 173, 0.05);
+  transition: box-shadow 0.3s ease;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.app-container:hover {
+  box-shadow:
+    0 18px 38px rgba(0, 74, 173, 0.15),
+    0 6px 12px rgba(0, 74, 173, 0.08);
+}
+
+/* ===== Headings ===== */
+.title {
+  font-weight: 800;
+  font-size: 2.8rem;
+  color: #004aad;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: 1.4px;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 74, 173, 0.2);
+}
+
+h2, h3 {
+  color: #003580;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+  user-select: none;
+}
+
+/* ===== Form Layout ===== */
+.form-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px 32px;
+  margin-bottom: 3rem;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  color: #375a9c;
+  user-select: none;
+  letter-spacing: 0.04em;
+}
+
+/* ===== Inputs & Selects ===== */
+input[type="number"],
+select {
+  font-size: 1.1rem;
+  padding: 13px 18px;
+  border-radius: 10px;
+  border: 2px solid #c9d5f3;
+  outline-offset: 3px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  color: #212121;
+  background: #f9fbff;
+  font-weight: 600;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.03);
+  cursor: text;
+}
+
+input[type="number"]::placeholder {
+  color: #a5afc7;
+  font-style: italic;
+}
+
+input[type="number"]:focus,
+select:focus {
+  border-color: #004aad;
+  box-shadow: 0 0 12px rgba(0, 74, 173, 0.35);
+  background-color: #f1f6ff;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Keyboard accessibility focus */
+input[type="number"]:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 3px solid #3a82f7;
+  outline-offset: 3px;
+}
+
+/* ===== Button ===== */
+.btn {
+  grid-column: 1 / -1;
+  padding: 16px 0;
+  background: linear-gradient(45deg, #004aad, #1e40af);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border: none;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 18px rgba(0, 74, 173, 0.35),
+    inset 0 -3px 5px rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.25s ease;
+  letter-spacing: 1.2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn:disabled {
+  background: #a1aad1;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn:not(:disabled):hover {
+  background: linear-gradient(45deg, #1e40af, #004aad);
+  box-shadow:
+    0 14px 30px rgba(0, 74, 173, 0.45),
+    inset 0 -5px 10px rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Button loading spinner */
+.btn.loading::after {
+  content: '';
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-top-color: #fff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+/* ===== Messages ===== */
+.message {
+  max-width: 750px;
+  margin: 0 auto 3rem auto;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.05em;
+  user-select: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  animation: fadeIn 1s ease;
+}
+
+.success {
+  color: #276738;
+  background-color: #d8f3db;
+  border: 2px solid #276738;
+}
+
+.error {
+  color: #b32626;
+  background-color: #fde3e3;
+  border: 2px solid #b32626;
+}
+
+/* ===== Results Container ===== */
+.result-container {
+  background: #f5faff;
+  padding: 2.5rem 3rem;
+  border-radius: 14px;
+  margin-bottom: 3.5rem;
+  box-shadow: inset 0 0 25px rgba(0, 74, 173, 0.05);
+  user-select: none;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.result-container h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1.8rem;
+}
+
+.result-container p {
+  font-size: 1.18rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #1a243b;
+  line-height: 1.4;
+}
+
+/* ===== Chart Container ===== */
+.chart-container {
+  background: #ffffff;
+  padding: 1.5rem 2rem 3rem;
+  border-radius: 14px;
+  margin-bottom: 4rem;
+  box-shadow:
+    0 6px 20px rgba(0, 74, 173, 0.12);
+  user-select: none;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.chart-container h3 {
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+  color: #003580;
+  text-align: center;
+}
+
+/* ===== Amortization Table ===== */
+.amortization-container {
+  margin-bottom: 4rem;
+  user-select: none;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.amortization-container h3 {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #003580;
+  margin-bottom: 1.4rem;
+  text-align: center;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 14px;
+  box-shadow:
+    0 12px 30px rgba(0, 74, 173, 0.1);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 720px;
+  font-size: 1rem;
+  color: #263238;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+thead {
+  background: linear-gradient(90deg, #004aad, #1e40af);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+th, td {
+  padding: 14px 22px;
+  border-bottom: 1.8px solid #dbe9ff;
+  text-align: center;
+  transition: background-color 0.25s ease;
+}
+
+tbody tr:hover {
+  background-color: #e9f0ff;
+  cursor: default;
+}
+
+/* Last row border removal */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ===== Loan Comparison Cards ===== */
+.comparison-container {
+  background: #eef5ff;
+  border-radius: 14px;
+  padding: 3rem 4rem;
+  box-shadow:
+    0 15px 40px rgba(0, 74, 173, 0.1);
+  user-select: none;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.comparison-container h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 2rem;
+  color: #004aad;
+  margin-bottom: 3rem;
+  letter-spacing: 0.06em;
+}
+
+.comparison-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px 35px;
+}
+
+.comparison-card {
+  flex: 1 1 280px;
+  background: white;
+  border-radius: 14px;
+  box-shadow:
+    0 10px 26px rgba(0, 74, 173, 0.08);
+  padding: 2rem 2.5rem;
+  border-left: 6px solid #004aad;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  cursor: default;
+  user-select: none;
+}
+
+.comparison-card:hover {
+  box-shadow:
+    0 18px 48px rgba(0, 74, 173, 0.14);
+  transform: translateY(-8px);
+}
+
+.comparison-card.eligible {
+  border-left-color: #28a745;
+  background: #e7f6e7;
+}
+
+.comparison-card.not-eligible {
+  border-left-color: #dc3545;
+  background: #ffe9e9;
+}
+
+.comparison-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #003580;
+  margin-bottom: 1rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 2rem 2rem;
+  }
+
+  .form-container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .comparison-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .comparison-grid {
+    flex-direction: column;
+    gap: 20px 0;
+  }
+
+  table {
+    min-width: 100%;
+    font-size: 0.95rem;
+  }
+
+  th, td {
+    padding: 10px 14px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .btn {
+    font-size: 1.15rem;
+    padding: 14px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+
+  .app-container {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    font-size: 1.05rem;
+    padding: 12px 0;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
